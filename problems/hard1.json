@@ -1,0 +1,41 @@
+{
+    "problem": "Given a string containing just the characters '(' and ')', return the length of the longest valid (well-formed) parentheses substring.",
+    
+    "examples": [
+            {
+                "input": "(()",
+                "output": 2
+            },
+            {
+                "input": ")()())",
+                "output": 4
+            }
+    ],
+    
+    "solution": "class Solution:\n    def longestValidParentheses(s):\n    stack = [-1]\n    max_len = 0\n    for i in range(len(s)):\n        if s[i] == '(': \n            stack.append(i)\n        else:\n            stack.pop()\n            if len(stack) == 0:\n                stack.append(i)\n            else:\n                max_len = max(max_len, i - stack[-1])\n    return max_len\n",
+
+    "incorrect_solution": "class Solution:\n    def longestValidParentheses(s):\n    open_count = close_count = max_len = 0\n    for i in range(len(s)):\n        if s[i] == '(': \n            open_count += 1\n        else:\n            close_count += 1\n        if open_count == close_count:\n            max_len = max(max_len, open_count + close_count)\n        elif close_count > open_count:\n            open_count = close_count = 0\n    return max_len\n",
+ 
+    "test_cases": [
+        {
+            "input": "(()",
+            "output": 2
+        },
+        {
+            "input": ")()())",
+            "output": 4
+        },
+        {
+            "input": "",
+            "output": 0
+        },
+        {
+            "input": "()(()",
+            "output": 2
+        },
+        {
+            "input": "())()()",
+            "output": 4
+        }
+    ]
+}
