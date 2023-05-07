@@ -10,8 +10,8 @@
             "expected_output": ["h", "a", "n", "n", "a", "H"]
         }
     ],
-    "solution": "class Solution:\n    def reverse_string(s):\n    left, right = 0, len(s) - 1\n    while left < right:\n        s[left], s[right] = s[right], s[left]\n        left += 1\n        right -= 1",
-    "incorrect_solution": "class Solution:\n    def reverse_string_incorrect(s):\n    s = s[::-1]",
+    "solution": "def reverse_string(s):\n    left, right = 0, len(s) - 1\n    while left < right:\n        s[left], s[right] = s[right], s[left]\n        left += 1\n        right -= 1",
+    "incorrect_solution": "def reverse_string_incorrect(s):\n    s = s[::-1]",
     "test_cases": [
         {
             "input": ["h", "e", "l", "l", "o"],
