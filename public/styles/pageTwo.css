@@ -125,18 +125,14 @@ nav ul li a:hover {
   padding: 10px;
   text-align: center;
   border-radius: 20px;
-  
+  box-shadow: 5px 10px 5px 0 rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
 }
-.levels .difficulty h2 span a {
-  outline: none;
-  text-decoration: none;
-  color: black;
-  transition: color 0.2s ease-in-out;
+.levels .difficulty h2:hover {
+  transform: scale(1.05);
 }
 
-.levels .difficulty h2 span a:hover {
-  color: gray;
-}
 .levels .difficulty h2:nth-child(1) {
   background-color: #a5d6a7;
   box-shadow: 5px 10px 5px 0 rgba(128, 179, 131, 0.3);
@@ -144,12 +140,12 @@ nav ul li a:hover {
 
 .levels .difficulty h2:nth-child(2) {
   background-color: #ffee57;
-  box-shadow: 5px 10px 5px 0 rgba(135, 126, 46,0.3);
+  box-shadow: 5px 10px 5px 0 rgba(135, 126, 46, 0.3);
 }
 
 .levels .difficulty h2:nth-child(3) {
   background-color: rgb(207, 46, 46);
-  box-shadow: 5px 10px 5px 0 rgba(207, 46, 46,0.3);
+  box-shadow: 5px 10px 5px 0 rgba(207, 46, 46, 0.3);
 }
 
 .levels .difficulty h2:nth-child(4) {
