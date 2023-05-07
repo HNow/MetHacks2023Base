@@ -56,28 +56,24 @@ import  "../scripts/timer.js"
 
 <div class="editor-container">
   <textarea id="editor">
-# Program to check if a string is palindrome or not
-
-my_str = 'aIbohPhoBiA'
-
-# make it suitable for caseless comparison
-my_str = my_str.casefold()
-
-# reverse the string
-rev_str = reversed(my_str)
-
-# check if the string is equal to its reverse
-if list(my_str) == list(rev_str):
-    return true
-else:
-    return false
+def longestValidParentheses(s) -> int:
+    char_set = set()
+    max_len = start = 0
+    for end in range(len(s)):
+        while s[end] in char_set:
+            char_set.remove(s[start])
+            start += 1
+        char_set.add(s[end])
+        max_len = max(max_len, end - start + 1)
+    return max_len
     </textarea>
 </div>
 
 
 <script>
     import axios from 'axios';
-
+    var result;
+    // const result;
 var editorIDE= CodeMirror.fromTextArea(document.getElementById('editor'),{
 				mode: "python",
 				theme: "material",
@@ -89,8 +85,15 @@ var editorIDE= CodeMirror.fromTextArea(document.getElementById('editor'),{
 
             submitButton.addEventListener("mousedown",function(){
                 var dataFromIde=editorIDE.getValue();
-                axios.post('http://localhost:80/python',{dataFromIde}).then (({data})=>console.log(data));
+                axios.post('http://localhost:80/python',{dataFromIde}).then(({data})=>(result=(data.passOrFail)));
 
+                if(result=='True'){
+                    alert("Success! Well done, you found the error and fixed the code!");
+                }
+
+                else if(result=='False'){
+                    alert("L");
+                }
 
             });
 
