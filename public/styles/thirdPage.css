@@ -21,17 +21,33 @@ body {
   top: 60px;
   left: 30vw;
   border-top: 5px solid white;
-  width: 1600px;
+  width: 95vw;
 }
+
 
 .vertical-line {
   position: absolute;
   left: 30%;
   border-left: 5px solid white;
-  height: 5000px;
+  height: 100vh;
+}
+.textLeft{
+
+  width: fit-content;
+}
+
+.problemText{
+  padding-left: 20px;
+  width: 300px;
+  color: white;
+  font-size: 1.3rem;
+
+
 }
 
 h1 {
+  font-size: 4rem;
+  padding-left: 20px;
   color: white;
 }
 
@@ -45,8 +61,13 @@ h1 {
 .editor-container {
   position: relative;
   left: 30.5vw;
-  top: 28px;
+  top: -270px;
   z-index: -1;
+}
+
+.in{
+  font-size: 3rem;
+  padding-left: 20px;
 }
 
 #editor {
@@ -73,13 +94,14 @@ h1 {
   font-size: 2rem;
 }
 
+
 .ion-button {
   border: none;
   background-color: transparent;
   padding: 5px 10px;
   position: absolute;
   left: 60vw;
-  bottom: 94%;
+  bottom: 96%;
   transition: all 0.2s ease-in-out;
   display: flex;
   align-items: center;
@@ -109,4 +131,18 @@ h1 {
 .ion-button:hover {
   transition: all 0.2s ease-in-out;
   color: black;
+}
+
+.sub{
+
+  padding-left: 20px;
+  font-size: 2rem;
+  color:  #a5d6a7;
+
+}
+
+.titleText{
+position: relative;
+width: 900px;
+  left: 600px;
 }

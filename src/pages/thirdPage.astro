@@ -35,17 +35,20 @@ import  "../scripts/timer.js"
 <body>
     
 <div class="Lines">
-    <div class="">
+    <div class="textLeft">
         <hr class="vertical-line">
         <h1> Problem</h1>
+        <p class="problemText">Debug this python program which should be able to detect the longest Valid Parentheses. Consider the role data structures can play in this problem when you are fixing any bugs or optimization issues. Good luck!  </p>
         <div class="cases">
              <h1 >Test Cases</h1>
-             <p>Input {}</p>
-             <p>Output{}</p>
+             <p class="in">Input {}</p>
+             <span class="sub">")()())"</span>
+             <p class="in">Output{}</p>
+             <span class="sub">4</span>
         </div>
     </div>
     <div class="above">
-        <h2>Fault Finder: {}</h2>
+        <h2 class="titleText">Fault Finder: Medium {}</h2>
          <hr class="horizontal-line">
          <div id="timer">00:00</div>
            <button class="ion-button" id="submitButton"><span>Run</span><ion-icon name="play-outline"></ion-icon></button>
@@ -79,26 +82,36 @@ var editorIDE= CodeMirror.fromTextArea(document.getElementById('editor'),{
 				theme: "material",
 				lineNumbers: true
 			});
-            editorIDE.setSize(1250, 950);
+            editorIDE.setSize(1250, 1000);
 
             var button=document.getElementById("submitButton");
 
             submitButton.addEventListener("mousedown",function(){
                 var dataFromIde=editorIDE.getValue();
-                axios.post('http://localhost:80/python',{dataFromIde}).then(({data})=>(result=(data.passOrFail)));
+                axios.post('http://localhost:80/python',{dataFromIde}).then(({data})=>
 
-                if(result=='True'){
-                    alert("Success! Well done, you found the error and fixed the code!");
-                }
-
-                else if(result=='False'){
-                    alert("L");
-                }
-
+                    determine(data.passOrFail)
+                
+                );
+            
+            
+            
+            
             });
 
 
+            function determine(a){
 
+
+                if(a=='False'){
+                    alert("Incorrect! You missed an error in the code, try again!");
+                }
+
+                else if(a=='True'){
+                    alert("Congrats you found the error! Keep practicing and move up to higher difficulties!");
+                }
+            }
+        
 
 </script>
 
