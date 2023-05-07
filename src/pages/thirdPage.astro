@@ -19,8 +19,15 @@ import  "../scripts/timer.js"
 		<meta name="generator" content={Astro.generator} />
 		<link rel="stylesheet" href="/styles/thirdPage.css" />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
+
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<script src="/Users/hisham/Desktop/MetHacks2023Base/codemirror/lib/codemirror.js" is:inline></script>
+		<script src="/Users/hisham/Desktop/MetHacks2023Base/codemirror/mode/python/python.js" is:inline></script>
+		<link href="/Users/hisham/Desktop/MetHacks2023Base/codemirror/lib/codemirror.css" rel="stylesheet"/>
+		<link href="/Users/hisham/Desktop/MetHacks2023Base/codemirror/theme/material.css" rel="stylesheet"/>
+
 
 		<title>Code Runner</title>
 	</head>
@@ -41,23 +48,56 @@ import  "../scripts/timer.js"
         <h2>Fault Finder: {}</h2>
          <hr class="horizontal-line">
          <div id="timer">00:00</div>
-           <button class="ion-button"><span>Run</span><ion-icon name="play-outline"></ion-icon></button>
+           <button class="ion-button" id="submitButton"><span>Run</span><ion-icon name="play-outline"></ion-icon></button>
 
          
     </div>
 
 
-    
-    
 <div class="editor-container">
-    <textarea id="editor"></textarea>
-</div>
+  <textarea id="editor">
+# Program to check if a string is palindrome or not
+
+my_str = 'aIbohPhoBiA'
+
+# make it suitable for caseless comparison
+my_str = my_str.casefold()
+
+# reverse the string
+rev_str = reversed(my_str)
+
+# check if the string is equal to its reverse
+if list(my_str) == list(rev_str):
+    return true
+else:
+    return false
+    </textarea>
 </div>
 
-<div class="editor-container">
-  <textarea id="editor"></textarea>
-</div>
 
+<script>
+    import axios from 'axios';
+
+var editorIDE= CodeMirror.fromTextArea(document.getElementById('editor'),{
+				mode: "python",
+				theme: "material",
+				lineNumbers: true
+			});
+            editorIDE.setSize(1250, 950);
+
+            var button=document.getElementById("submitButton");
+
+            submitButton.addEventListener("mousedown",function(){
+                var dataFromIde=editorIDE.getValue();
+                axios.post('http://localhost:80/python',{dataFromIde}).then (({data})=>console.log(data));
+
+
+            });
+
+
+
+
+</script>
 
     
 </body>
