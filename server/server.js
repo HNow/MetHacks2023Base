@@ -23,21 +23,6 @@ w.on('close', function() {
 
 r.pipe(w);
 
-
-
-// let options = {
-//     mode: 'text',
-//     pythonOptions: ['-u'], // get print results in real-time
-//     args: [1],
-//   };
-  
-//   PythonShell.run('./test.py',options,function (err,results){
-//     if(err) throw err;
-
-//     console.log("results: %j", results);
-  
-//   });
-
 let options = {
     mode: 'text',
 
